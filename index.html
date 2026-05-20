@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fmanar Furniture</title>
+
+<!-- 引入CSS样式文件 -->
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Header -->
+<!-- =========================
+     顶部导航 HEADER
+     ========================= -->
 <header class="header" id="header">
+
+  <!-- 网站LOGO -->
   <div class="logo">Fmanar</div>
+
+  <!-- 导航菜单 -->
   <nav>
     <a href="#">Home</a>
     <a href="#">Sofa</a>
@@ -19,16 +28,23 @@
     <a href="#">Dining</a>
     <a href="#">About</a>
   </nav>
+
 </header>
 
+<!-- =========================
+     首屏 HERO（视频背景）
+     ========================= -->
 <section class="hero">
 
+  <!-- 背景视频 -->
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="videos/hero.mp4" type="video/mp4">
   </video>
 
+  <!-- 视频遮罩层（让文字更清晰） -->
   <div class="hero-overlay"></div>
 
+  <!-- 首屏文字内容 -->
   <div class="hero-content fade">
     <h1>Fmanar Furniture</h1>
     <p>Design for Better Living</p>
@@ -36,26 +52,30 @@
   </div>
 
 </section>
-  <div class="hero-content fade">
-    <h1>Fmanar Furniture</h1>
-    <p>Design for Better Living</p>
-    <button>Explore Collection</button>
-  </div>
-</section>
 
-<!-- Categories -->
+<!-- =========================
+     分类区域 CATEGORY
+     ========================= -->
 <section class="category fade">
+
   <div class="card">Sofa</div>
   <div class="card">Bedroom</div>
   <div class="card">Dining</div>
   <div class="card">Storage</div>
+
 </section>
 
-<!-- Products -->
+<!-- =========================
+     产品展示 PRODUCTS
+     ========================= -->
 <section class="products">
+
+  <!-- 标题 -->
   <h2 class="fade">Featured Products</h2>
 
+  <!-- 产品网格 -->
   <div class="grid">
+
     <div class="item fade">
       <img src="images/1.jpg">
       <p>Modern Sofa</p>
@@ -75,12 +95,20 @@
       <img src="images/4.jpg">
       <p>Dining Set</p>
     </div>
+
   </div>
+
 </section>
 
-<!-- About -->
+<!-- =========================
+     关于我们 ABOUT
+     ========================= -->
 <section class="about fade">
+
+  <!-- 左侧图片 -->
   <div class="about-img"></div>
+
+  <!-- 右侧文字 -->
   <div class="about-text">
     <h2>About Fmanar</h2>
     <p>
@@ -88,13 +116,17 @@
       elegant and comfortable living space design.
     </p>
   </div>
+
 </section>
 
-<!-- Footer -->
+<!-- =========================
+     页脚 FOOTER
+     ========================= -->
 <footer>
   © 2026 Fmanar Furniture
 </footer>
 
+<!-- 引入JS脚本 -->
 <script src="script.js"></script>
 
 </body>
