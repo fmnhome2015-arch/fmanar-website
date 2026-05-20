@@ -1,86 +1,179 @@
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* 导航 */
-.navbar {
+/* Header */
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 60px;
-  background: white;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
-nav a {
+.header nav a {
   margin: 0 15px;
   text-decoration: none;
   color: #333;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-/* 主视觉 */
+.header nav a:hover {
+  color: #000;
+}
+
+/* Hero */
 .hero {
-  height: 80vh;
-  background: url("images/banner.jpg") center/cover;
+  height: 100vh;
+  background: url("images/banner.jpg") center/cover no-repeat;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-left: 80px;
   color: white;
-  text-align: center;
 }
 
-.hero h1 {
+.hero-content h1 {
   font-size: 60px;
+  font-weight: 300;
 }
 
-.hero button {
+.hero-content p {
+  margin-top: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.hero-content button {
   margin-top: 20px;
-  padding: 10px 25px;
+  padding: 12px 25px;
   border: none;
   background: black;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* 产品 */
+.hero-content button:hover {
+  background: #333;
+}
+
+/* Category */
+.category {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 80px 40px;
+  background: #f7f7f7;
+}
+
+.category .card {
+  width: 180px;
+  height: 100px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.category .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Products */
 .products {
-  padding: 60px;
+  padding: 80px 60px;
+  text-align: center;
 }
 
 .products h2 {
-  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: 300;
 }
 
 .grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
 }
 
-.card {
-  background: white;
-  width: 250px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
+.item {
+  background: #fff;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.card img {
+.item img {
   width: 100%;
-  border-radius: 10px;
+  display: block;
+  transition: 0.3s;
 }
 
-/* 页脚 */
+.item p {
+  padding: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+.item:hover img {
+  transform: scale(1.05);
+}
+
+/* About */
+.about {
+  display: flex;
+  height: 400px;
+  margin-top: 60px;
+}
+
+.about-img {
+  flex: 1;
+  background: url("images/about.jpg") center/cover;
+}
+
+.about-text {
+  flex: 1;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.about-text p {
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Footer */
 footer {
+  background: #111;
+  color: #fff;
   text-align: center;
   padding: 30px;
-  background: #222;
-  color: white;
+  margin-top: 60px;
 }
