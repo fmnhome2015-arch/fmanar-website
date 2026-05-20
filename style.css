@@ -6,7 +6,7 @@
 }
 
 /* Header */
-.header {
+header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -14,7 +14,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.8);
+
+  /* ✅ 改这里：黑色 + 30%透明 */
+  background: rgba(0, 0, 0, 0.3);
+
   backdrop-filter: blur(10px);
   transition: 0.3s;
   z-index: 1000;
