@@ -1,133 +1,149 @@
+/* =========================
+   全局基础样式
+   ========================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0; /* 清除默认外边距 */
+  padding: 0; /* 清除默认内边距 */
+  box-sizing: border-box; /* 让宽高计算更合理 */
+  font-family: "Helvetica Neue", Arial, sans-serif; /* 更现代的字体 */
 }
 
 body {
-  background: #fff;
-  color: #111;
+  background: #fff; /* 页面背景白色 */
+  color: #111; /* 默认字体颜色深灰黑 */
 }
 
 /* =========================
-   HEADER（升级：Pachan风格）
-========================= */
+   顶部导航 HEADER（Pachan风格核心）
+   ========================= */
 .header {
-  position: fixed;
+  position: fixed; /* 固定在顶部 */
   top: 0;
-  width: 100%;
-  padding: 18px 60px;
+  width: 100%; /* 占满全屏宽度 */
+  padding: 18px 60px; /* 上下18px，左右60px */
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* 横向排列 */
+  justify-content: space-between; /* 左右分布 */
+  align-items: center; /* 垂直居中 */
 
-  /* ⭐ 高级玻璃黑 */
+  /* ⭐ 高级玻璃黑背景（半透明） */
   background: rgba(0, 0, 0, 0.25);
+
+  /* ⭐ 毛玻璃模糊效果 */
   backdrop-filter: blur(12px);
 
-  z-index: 1000;
-  transition: 0.3s;
+  z-index: 1000; /* 保证在最上层 */
+  transition: 0.3s; /* 动画过渡 */
 }
 
+/* 滚动后的导航状态 */
 .header.scrolled {
-  background: rgba(0, 0, 0, 0.45);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.45); /* 更深一点的黑 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 阴影增强层级 */
 }
 
+/* 导航文字样式 */
 .header nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s;
+  margin: 0 15px; /* 每个菜单间距 */
+  text-decoration: none; /* 去掉下划线 */
+  color: #fff; /* 白色字体 */
+  font-size: 14px; /* 字体大小 */
+  letter-spacing: 1px; /* 字间距（更高级） */
+  transition: 0.3s; /* 悬停动画 */
 }
 
+/* 鼠标悬停效果 */
 .header nav a:hover {
-  opacity: 0.6;
+  opacity: 0.6; /* 变淡效果 */
 }
 
 /* =========================
-   HERO（升级：更高级视频层）
-========================= */
+   首屏 HERO（视频区域）
+   ========================= */
 .hero {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+  height: 100vh; /* 占满整个屏幕 */
+  position: relative; /* 作为子元素定位基准 */
+  overflow: hidden; /* 防止溢出 */
 
-  display: flex;
-  align-items: center;
-  padding-left: 80px;
-  color: white;
+  display: flex; /* 文字居中布局 */
+  align-items: center; /* 垂直居中 */
+  padding-left: 80px; /* 左边留白 */
+  color: white; /* 字体白色 */
 }
 
 /* 视频背景 */
 .hero-video {
-  position: absolute;
+  position: absolute; /* 绝对定位铺满 */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 0;
+  object-fit: cover; /* 视频铺满不变形 */
+  z-index: 0; /* 最底层 */
 }
 
-/* ⭐ 更高级渐变遮罩（比纯黑更高级） */
+/* ⭐ 渐变遮罩（提升高级感，比纯黑更自然） */
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0; /* 等同 top/right/bottom/left = 0 */
+
+  /* 从上到下渐变压暗 */
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0.25),
     rgba(0,0,0,0.45)
   );
-  z-index: 1;
+
+  z-index: 1; /* 在视频上面 */
 }
 
+/* hero文字层 */
 .hero-content {
-  position: relative;
+  position: relative; /* 保证在最上层 */
   z-index: 2;
 }
 
+/* 主标题 */
 .hero-content h1 {
-  font-size: 64px;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-size: 64px; /* 大标题 */
+  font-weight: 300; /* 细字体（高级感关键） */
+  letter-spacing: 2px; /* 字间距拉开更高级 */
 }
 
+/* 按钮 */
 .hero-content button {
   margin-top: 20px;
   padding: 12px 25px;
   border: none;
-  background: #111;
+  background: #111; /* 黑色按钮 */
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
 }
 
+/* 按钮悬停 */
 .hero-content button:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* 放大一点点 */
 }
 
 /* =========================
-   CATEGORY（更干净）
-========================= */
+   分类区域 CATEGORY
+   ========================= */
 .category {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 20px; /* 卡片间距 */
   padding: 80px;
-  background: #f7f7f7;
+  background: #f7f7f7; /* 浅灰背景 */
 }
 
+/* 分类卡片 */
 .card {
   width: 180px;
   height: 100px;
   background: #fff;
-  border: 1px solid #eee;
+  border: 1px solid #eee; /* 细边框更干净 */
 
   display: flex;
   justify-content: center;
@@ -136,58 +152,65 @@ body {
   transition: 0.3s;
 }
 
+/* 卡片悬停 */
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px); /* 上浮效果 */
 }
 
 /* =========================
-   PRODUCTS
-========================= */
+   产品区域 PRODUCTS
+   ========================= */
 .products {
   padding: 80px;
   text-align: center;
 }
 
+/* 产品网格布局 */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
+/* 单个产品 */
 .item {
   transition: 0.3s;
 }
 
+/* 产品图片 */
 .item img {
   width: 100%;
   transition: 0.4s;
 }
 
+/* 图片放大效果 */
 .item:hover img {
   transform: scale(1.08);
 }
 
 /* =========================
-   ABOUT
-========================= */
+   关于 ABOUT
+   ========================= */
 .about {
   display: flex;
   height: 400px;
 }
 
+/* 左侧图片 */
 .about-img {
   flex: 1;
   background: url("images/about.jpg") center/cover;
 }
 
+/* 右侧文字 */
 .about-text {
   flex: 1;
   padding: 80px;
 }
 
 /* =========================
-   FOOTER
-========================= */
+   页脚 FOOTER
+   ========================= */
 footer {
   background: #111;
   color: white;
@@ -196,14 +219,15 @@ footer {
 }
 
 /* =========================
-   ANIMATION
-========================= */
+   动画效果（滚动出现）
+   ========================= */
 .fade {
   opacity: 0;
   transform: translateY(40px);
   transition: all 1s ease;
 }
 
+/* 显示状态 */
 .fade.show {
   opacity: 1;
   transform: translateY(0);
