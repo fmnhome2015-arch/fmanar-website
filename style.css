@@ -5,9 +5,7 @@
   font-family: Arial;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -16,14 +14,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px);
   transition: 0.3s;
   z-index: 1000;
 }
 
 .header.scrolled {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .header nav a {
@@ -32,9 +30,7 @@
   color: #333;
 }
 
-/* =========================
-   HERO（基础版本）
-========================= */
+/* Hero */
 .hero {
   height: 100vh;
   background: url("images/banner.jpg") center/cover;
@@ -42,18 +38,11 @@
   align-items: center;
   padding-left: 80px;
   color: white;
-}
-
-/* =========================
-   HERO VIDEO（覆盖增强版本）
-   ⚠️ 合并写法：避免重复 .hero 冲突
-========================= */
-.hero {
   position: relative;
   overflow: hidden;
 }
 
-/* 视频背景 */
+/* Video */
 .hero-video {
   position: absolute;
   top: 0;
@@ -63,7 +52,6 @@
   object-fit: cover;
   z-index: 0;
 }
-
 
 /* 文字层 */
 .hero-content {
@@ -89,9 +77,7 @@
   transform: scale(1.05);
 }
 
-/* =========================
-   CATEGORY
-========================= */
+/* Category */
 .category {
   display: flex;
   justify-content: center;
@@ -113,12 +99,10 @@
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.1);
 }
 
-/* =========================
-   PRODUCTS
-========================= */
+/* Products */
 .products {
   padding: 80px;
   text-align: center;
@@ -143,9 +127,7 @@
   transform: scale(1.08);
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* About */
 .about {
   display: flex;
   height: 400px;
@@ -161,9 +143,7 @@
   padding: 80px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* Footer */
 footer {
   background: #111;
   color: white;
@@ -171,9 +151,7 @@ footer {
   padding: 30px;
 }
 
-/* =========================
-   动效
-========================= */
+/* Fade */
 .fade {
   opacity: 0;
   transform: translateY(40px);
