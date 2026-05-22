@@ -104,7 +104,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.20);
   z-index: 1;
   pointer-events: none;
 }
@@ -125,7 +125,7 @@ a {
   width: auto;
   display: block;
   margin-bottom: 20px;
-  margin-left: -30px; /* 只让图片左移，文字按钮不动 */
+  margin-left: -10px; /* 只让图片左移，文字按钮不动 */
 
   opacity: 0;
   transform: translateY(20px);
