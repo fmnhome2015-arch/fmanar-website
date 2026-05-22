@@ -124,7 +124,7 @@ a {
   width: auto;
   display: block;
   margin-bottom: 20px;
-  margin-left: 0; /* 不再单独偏移 */
+  margin-left: -300px; 
 
   opacity: 0;
   transform: translateY(20px);
