@@ -5,13 +5,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: #222;
   background: #fff;
+  color: #111;
   line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -19,9 +24,13 @@ a {
   color: inherit;
 }
 
-img {
+/* =========================
+   LOGO 图片
+   ========================= */
+.logo img {
+  height: 40px;
+  width: auto;
   display: block;
-  max-width: 100%;
 }
 
 /* =========================
@@ -32,47 +41,47 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  padding: 18px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  transition: 0.3s;
 }
 
-.logo img {
-  height: 42px;
-  width: auto;
-}
-
-.header nav {
-  display: flex;
-  gap: 30px;
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
 .header nav a {
+  margin: 0 15px;
   color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
 .header nav a:hover {
-  opacity: 0.75;
+  opacity: 0.6;
 }
 
 /* =========================
-   HERO 首屏视频区域
+   首屏 HERO（视频区域）
    ========================= */
 .hero {
-  position: relative;
-  width: 100%;
   height: 100vh;
+  position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  color: #fff;
 }
 
-/* 背景视频 */
 .hero-video {
   position: absolute;
   top: 0;
@@ -80,275 +89,251 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
-/* 去掉视频遮罩 */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.12);
   z-index: 1;
   pointer-events: none;
 }
 
-
-/* 首屏内容 */
 .hero-content {
   position: relative;
   z-index: 2;
-  height: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  padding: 0 20px;
+  align-items: flex-start;
 }
 
 .hero-logo {
-  width: 280px;
-  max-width: 80%;
+  height: 90px;
+  width: auto;
+  display: block;
   margin-bottom: 20px;
-    margin-left: -30px; 
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeLogo 1s ease forwards;
+}
+
+@keyframes fadeLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-content p {
-  font-size: 22px;
-  margin-bottom: 24px;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: left;
 }
 
 .hero-content button {
-  padding: 14px 32px;
+  margin-top: 10px;
+  padding: 12px 25px;
   border: none;
-  background: #ffffff;
-  color: #222;
-  font-size: 15px;
+  background: #111;
+  color: #fff;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .hero-content button:hover {
-  background: #f2f2f2;
-  transform: translateY(-2px);
+  transform: scale(1.05);
+  background: #222;
 }
 
 /* =========================
    分类区域 CATEGORY
    ========================= */
 .category {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 20px;
-  padding: 80px 60px;
-  background: #f8f6f3;
+  padding: 80px;
+  background: #f7f7f7;
+  flex-wrap: wrap;
 }
 
 .card {
+  width: 180px;
+  height: 100px;
   background: #fff;
-  padding: 50px 20px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 8px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 /* =========================
-   产品展示 PRODUCTS
-   ========================= */
-/* =========================
-   产品区域 PRODUCTS
-   Visionnaire Featured interiors 风格改造版
+   产品区域 PRODUCTS 轮播版
    ========================= */
 .products {
-  padding: 110px 80px 80px;
-  background: #fff;
+  background: #f7f6f3;
+  padding: 70px 24px 80px;
 }
 
-/* 上方介绍区 */
-.products-intro {
-  margin-bottom: 70px;
-}
-
-/* 小标题风格 */
-.products-intro h2 {
-  font-size: 30px;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  color: #111;
-  margin-bottom: 34px;
-  text-align: left;
-}
-
-/* 横向分类 */
-.products-tabs {
+.products-head {
+  max-width: 1400px;
+  margin: 0 auto 26px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 22px 34px;
-  margin-bottom: 34px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.products-tabs a {
-  position: relative;
-  color: #111;
-  font-size: 16px;
-  font-weight: 300;
-  letter-spacing: 0.4px;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.products-tabs a:hover {
-  opacity: 0.55;
-}
-
-/* 可选：给第一个分类一个下划线强调 */
-.products-tabs a:first-child::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 100%;
-  height: 1px;
-  background: #111;
-}
-
-/* 描述文案 */
-.products-copy {
-  max-width: 540px;
-  margin-bottom: 28px;
-}
-
-.products-copy p {
+.products-head h2 {
   font-size: 20px;
-  line-height: 1.7;
-  font-weight: 300;
-  color: #222;
+  font-weight: 600;
+  color: #5c5c5c;
   letter-spacing: 0.2px;
-  text-align: left;
 }
 
-/* 文字链接按钮 */
-.products-link {
-  display: inline-block;
-  color: #111;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 4px;
-  transition: opacity 0.3s ease;
+.products-arrows {
+  display: flex;
+  gap: 10px;
 }
 
-.products-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
+.arrow-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  color: #8a8a8a;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.arrow-btn:hover {
   background: #111;
+  color: #fff;
+  border-color: #111;
 }
 
-.products-link:hover {
-  opacity: 0.6;
-}
-
-/* 下方产品网格 */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-}
-
-.item {
-  transition: 0.3s;
+.products-slider {
+  max-width: 1400px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-.item img {
-  width: 100%;
+.products-track {
+  display: flex;
+  gap: 6px;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.showcase-item {
+  flex: 0 0 calc((100% - 12px) / 3);
+  min-width: calc((100% - 12px) / 3);
   display: block;
-  transition: transform 0.5s ease;
 }
 
-.item:hover img {
-  transform: scale(1.05);
+.showcase-image {
+  position: relative;
+  overflow: hidden;
+  background: #ddd;
+  aspect-ratio: 0.72 / 1;
 }
 
-.item p {
-  margin-top: 16px;
-  font-size: 15px;
-  color: #222;
-  text-align: left;
-  font-weight: 300;
-  letter-spacing: 0.3px;
+.showcase-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.showcase-item:hover .showcase-image img {
+  transform: scale(1.04);
+}
+
+.showcase-item p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #6b6b6b;
+  font-weight: 500;
+  padding-left: 2px;
 }
 
 /* =========================
-   关于我们 ABOUT
+   关于 ABOUT
    ========================= */
 .about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 500px;
+  display: flex;
+  min-height: 400px;
 }
 
 .about-img {
+  flex: 1;
   background: url("images/about.jpg") center/cover no-repeat;
 }
 
 .about-text {
+  flex: 1;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
-  background: #f8f6f3;
 }
 
 .about-text h2 {
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 300;
   margin-bottom: 20px;
 }
 
 .about-text p {
-  font-size: 17px;
+  font-size: 16px;
   color: #555;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 /* =========================
    页脚 FOOTER
    ========================= */
 footer {
-  text-align: center;
-  padding: 25px 20px;
   background: #111;
   color: #fff;
+  text-align: center;
+  padding: 30px;
   font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 /* =========================
-   淡入动画（可选）
+   动画效果（滚动出现）
    ========================= */
 .fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade.show {
   opacity: 1;
   transform: translateY(0);
-  transition: all 0.8s ease;
 }
 
 /* =========================
-   响应式
+   平板响应式
    ========================= */
 @media (max-width: 992px) {
   .header {
@@ -360,19 +345,24 @@ footer {
   }
 
   .products {
-    padding: 90px 40px 60px;
+    padding: 60px 20px 70px;
   }
 
-  .products-intro h2 {
-    font-size: 26px;
+  .products-head {
+    margin-bottom: 22px;
   }
 
-  .products-copy p {
-    font-size: 18px;
+  .showcase-item {
+    flex: 0 0 calc((100% - 10px) / 2);
+    min-width: calc((100% - 10px) / 2);
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .products-track {
+    gap: 10px;
+  }
+
+  .showcase-image {
+    aspect-ratio: 1.05 / 1;
   }
 
   .about {
@@ -388,6 +378,9 @@ footer {
   }
 }
 
+/* =========================
+   手机响应式
+   ========================= */
 @media (max-width: 768px) {
   .header {
     padding: 14px 20px;
@@ -432,43 +425,47 @@ footer {
   }
 
   .products {
-    padding: 70px 20px 50px;
+    padding: 50px 16px 60px;
   }
 
-  .products-intro {
-    margin-bottom: 45px;
+  .products-head {
+    margin-bottom: 18px;
+    align-items: center;
   }
 
-  .products-intro h2 {
-    font-size: 24px;
-    margin-bottom: 24px;
+  .products-head h2 {
+    font-size: 18px;
   }
 
-  .products-tabs {
-    gap: 14px 20px;
-    margin-bottom: 24px;
+  .products-arrows {
+    gap: 8px;
   }
 
-  .products-tabs a {
-    font-size: 14px;
+  .arrow-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
   }
 
-  .products-copy p {
-    font-size: 16px;
-    line-height: 1.7;
+  .products-track {
+    gap: 12px;
   }
 
-  .products-link {
-    font-size: 14px;
+  .showcase-item {
+    flex: 0 0 100%;
+    min-width: 100%;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+  .showcase-image {
+    aspect-ratio: 0.95 / 1;
+  }
+
+  .showcase-item p {
+    margin-top: 10px;
+    font-size: 13px;
   }
 
   .about-text {
     padding: 40px 20px;
   }
 }
-
