@@ -5,31 +5,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
+  font-family: Arial, sans-serif;
+  color: #222;
   background: #fff;
-  color: #111;
   line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
   display: block;
   max-width: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* =========================
-   LOGO 图片
-   ========================= */
-.logo img {
-  height: 40px;
-  width: auto;
-  display: block;
 }
 
 /* =========================
@@ -40,47 +32,47 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 18px 60px;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 1000;
-  transition: 0.3s;
+  padding: 20px 60px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
 }
 
-.header.scrolled {
-  background: rgba(0, 0, 0, 0.32);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+.logo img {
+  height: 42px;
+  width: auto;
+}
+
+.header nav {
+  display: flex;
+  gap: 30px;
 }
 
 .header nav a {
-  margin: 0 15px;
   color: #fff;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
 }
 
 .header nav a:hover {
-  opacity: 0.6;
+  opacity: 0.75;
 }
 
 /* =========================
-   首屏 HERO（视频区域）
+   HERO 首屏视频区域
    ========================= */
 .hero {
-  height: 100vh;
   position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding-left: 80px;
-  color: #fff;
 }
 
+/* 背景视频 */
 .hero-video {
   position: absolute;
   top: 0;
@@ -88,216 +80,192 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
 }
 
-/* 很淡很淡的遮罩 */
+/* 去掉视频遮罩 */
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.12);
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 
-/* Hero 内容整体左对齐 */
+/* 首屏内容 */
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-/* 首屏 logo */
-.hero-logo {
-  height: 90px;
-  width: auto;
-  display: block;
-  margin-bottom: 20px;
-  margin-left: 0;
-
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeLogo 1s ease forwards;
-}
-
-@keyframes fadeLogo {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hero 文案 */
-.hero-content p {
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  margin-top: 8px;
-  margin-bottom: 22px;
-  color: rgba(255, 255, 255, 0.95);
-  text-align: left;
-}
-
-/* Hero 按钮 */
-.hero-content button {
-  margin-top: 10px;
-  padding: 12px 25px;
-  border: none;
-  background: #111;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 14px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-logo {
+  width: 280px;
+  max-width: 80%;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 22px;
+  margin-bottom: 24px;
   letter-spacing: 1px;
 }
 
+.hero-content button {
+  padding: 14px 32px;
+  border: none;
+  background: #ffffff;
+  color: #222;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
 .hero-content button:hover {
-  transform: scale(1.05);
-  background: #222;
+  background: #f2f2f2;
+  transform: translateY(-2px);
 }
 
 /* =========================
    分类区域 CATEGORY
    ========================= */
 .category {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 80px;
-  background: #f7f7f7;
-  flex-wrap: wrap;
+  padding: 80px 60px;
+  background: #f8f6f3;
 }
 
 .card {
-  width: 180px;
-  height: 100px;
   background: #fff;
-  border: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
+  padding: 50px 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 }
 
 /* =========================
-   产品区域 PRODUCTS
+   产品展示 PRODUCTS
    ========================= */
 .products {
-  padding: 80px;
-  text-align: center;
+  padding: 80px 60px;
+  background: #fff;
 }
 
 .products h2 {
-  font-size: 36px;
-  font-weight: 300;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 50px;
+  color: #222;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 25px;
 }
 
 .item {
-  transition: 0.3s;
+  background: #fff;
+  border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-5px);
 }
 
 .item img {
   width: 100%;
-  display: block;
-  transition: 0.4s;
-}
-
-.item:hover img {
-  transform: scale(1.08);
+  height: 320px;
+  object-fit: cover;
 }
 
 .item p {
-  margin-top: 14px;
-  font-size: 15px;
-  color: #222;
+  text-align: center;
+  padding: 16px 10px;
+  font-size: 17px;
 }
 
 /* =========================
-   关于 ABOUT
+   关于我们 ABOUT
    ========================= */
 .about {
-  display: flex;
-  min-height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
 }
 
 .about-img {
-  flex: 1;
   background: url("images/about.jpg") center/cover no-repeat;
 }
 
 .about-text {
-  flex: 1;
-  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 60px;
+  background: #f8f6f3;
 }
 
 .about-text h2 {
-  font-size: 34px;
-  font-weight: 300;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
 .about-text p {
-  font-size: 16px;
+  font-size: 17px;
   color: #555;
-  max-width: 520px;
+  max-width: 500px;
 }
 
 /* =========================
    页脚 FOOTER
    ========================= */
 footer {
+  text-align: center;
+  padding: 25px 20px;
   background: #111;
   color: #fff;
-  text-align: center;
-  padding: 30px;
   font-size: 14px;
-  letter-spacing: 0.5px;
 }
 
 /* =========================
-   动画效果（滚动出现）
+   淡入动画（可选）
    ========================= */
 .fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.fade.show {
   opacity: 1;
   transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
 /* =========================
-   平板响应式
+   响应式
    ========================= */
 @media (max-width: 992px) {
   .header {
-    padding: 16px 30px;
+    padding: 18px 30px;
   }
 
-  .hero {
-    padding-left: 40px;
+  .category {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 30px;
+  }
+
+  .products {
+    padding: 60px 30px;
   }
 
   .grid {
@@ -305,7 +273,7 @@ footer {
   }
 
   .about {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .about-img {
@@ -313,53 +281,33 @@ footer {
   }
 
   .about-text {
-    padding: 50px 30px;
+    padding: 40px 30px;
   }
 }
 
-/* =========================
-   手机响应式
-   ========================= */
 @media (max-width: 768px) {
   .header {
-    padding: 14px 20px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    padding: 15px 20px;
   }
 
   .header nav {
-    display: flex;
+    gap: 18px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .header nav a {
-    margin: 6px 10px;
-  }
-
-  .hero {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    align-items: center;
-  }
-
   .hero-logo {
-    height: 70px;
-    margin-bottom: 18px;
+    width: 220px;
   }
 
   .hero-content p {
-    font-size: 16px;
-    text-align: center;
+    font-size: 18px;
   }
 
   .category {
+    grid-template-columns: 1fr;
     padding: 50px 20px;
   }
 
@@ -371,7 +319,11 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .about-text {
-    padding: 40px 20px;
+  .products h2 {
+    font-size: 28px;
+  }
+
+  .item img {
+    height: 260px;
   }
 }
