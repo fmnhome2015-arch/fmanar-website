@@ -105,6 +105,7 @@ img {
   width: 280px;
   max-width: 80%;
   margin-bottom: 20px;
+    margin-left: -30px; 
 }
 
 .hero-content p {
