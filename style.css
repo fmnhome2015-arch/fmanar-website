@@ -89,7 +89,23 @@ body {
   object-fit: cover; /* 视频铺满不变形 */
   z-index: 0; /* 最底层 */
 }
+.hero-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+  margin-bottom: 20px;
 
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeLogo 1s ease forwards;
+}
+
+@keyframes fadeLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ⭐ 渐变遮罩（提升高级感，比纯黑更自然） */
 .hero::before {
   content: "";
