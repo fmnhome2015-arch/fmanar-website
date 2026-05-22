@@ -2,15 +2,15 @@
    全局基础样式
    ========================= */
 * {
-  margin: 0; /* 清除默认外边距 */
-  padding: 0; /* 清除默认内边距 */
-  box-sizing: border-box; /* 让宽高计算更合理 */
-  font-family: "Helvetica Neue", Arial, sans-serif; /* 更现代的字体 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  background: #fff; /* 页面背景白色 */
-  color: #111; /* 默认字体颜色深灰黑 */
+  background: #fff;
+  color: #111;
   line-height: 1.6;
 }
 
@@ -27,8 +27,8 @@ a {
    LOGO 图片
    ========================= */
 .logo img {
-  height: 40px;   /* logo高度 */
-  width: auto;    /* 自动保持比例 */
+  height: 40px;
+  width: auto;
   display: block;
 }
 
@@ -36,67 +36,59 @@ a {
    顶部导航 HEADER
    ========================= */
 .header {
-  position: fixed; /* 固定在顶部 */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* 占满全屏宽度 */
-  padding: 18px 60px; /* 上下18px，左右60px */
-
-  display: flex; /* 横向排列 */
-  justify-content: space-between; /* 左右分布 */
-  align-items: center; /* 垂直居中 */
-
-  background: rgba(0, 0, 0, 0.18); /* 很轻的半透明黑 */
+  width: 100%;
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
-  z-index: 1000; /* 保证在最上层 */
-  transition: 0.3s; /* 动画过渡 */
+  z-index: 1000;
+  transition: 0.3s;
 }
 
-/* 滚动后的导航状态 */
 .header.scrolled {
-  background: rgba(0, 0, 0, 0.32); /* 更深一点的黑 */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); /* 阴影增强层级 */
+  background: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* 导航文字样式 */
 .header nav a {
-  margin: 0 15px; /* 每个菜单间距 */
-  color: #fff; /* 白色字体 */
-  font-size: 14px; /* 字体大小 */
-  letter-spacing: 1px; /* 字间距（更高级） */
-  transition: 0.3s; /* 悬停动画 */
+  margin: 0 15px;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
 
-/* 鼠标悬停效果 */
 .header nav a:hover {
-  opacity: 0.6; /* 变淡效果 */
+  opacity: 0.6;
 }
 
 /* =========================
    首屏 HERO（视频区域）
    ========================= */
 .hero {
-  height: 100vh; /* 占满整个屏幕 */
-  position: relative; /* 作为子元素定位基准 */
-  overflow: hidden; /* 防止溢出 */
-
-  display: flex; /* 文字居中布局 */
-  align-items: center; /* 垂直居中 */
-  padding-left: 80px; /* 左边留白 */
-  color: white; /* 字体白色 */
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  color: #fff;
 }
 
-/* 视频背景 */
 .hero-video {
-  position: absolute; /* 绝对定位铺满 */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 视频铺满不变形 */
-  z-index: 0; /* 最底层 */
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* 很淡很淡的遮罩 */
@@ -104,33 +96,42 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.20);
+  background: rgba(0, 0, 0, 0.12);
   z-index: 1;
   pointer-events: none;
 }
 
-/* hero文字层 */
+/* Hero 内容整体左对齐 */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 全部左对齐 */
+  align-items: flex-start;
 }
 
+/* 首屏 logo */
 .hero-logo {
   height: 90px;
   width: auto;
   display: block;
   margin-bottom: 20px;
-  margin-left: -300px; 
+  margin-left: 0;
 
   opacity: 0;
   transform: translateY(20px);
   animation: fadeLogo 1s ease forwards;
 }
 
+@keyframes fadeLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero 文案 */
 .hero-content p {
   font-size: 20px;
   font-weight: 300;
@@ -138,18 +139,10 @@ a {
   margin-top: 8px;
   margin-bottom: 22px;
   color: rgba(255, 255, 255, 0.95);
-  text-align: left; /* 文字左对齐 */
+  text-align: left;
 }
 
-
-/* 如果以后恢复h1可用 */
-.hero-content h1 {
-  font-size: 64px;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-/* 按钮 */
+/* Hero 按钮 */
 .hero-content button {
   margin-top: 10px;
   padding: 12px 25px;
@@ -162,7 +155,6 @@ a {
   letter-spacing: 1px;
 }
 
-/* 按钮悬停 */
 .hero-content button:hover {
   transform: scale(1.05);
   background: #222;
@@ -185,11 +177,9 @@ a {
   height: 100px;
   background: #fff;
   border: 1px solid #eee;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: 0.3s;
 }
 
@@ -277,7 +267,7 @@ a {
    ========================= */
 footer {
   background: #111;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 30px;
   font-size: 14px;
@@ -299,7 +289,7 @@ footer {
 }
 
 /* =========================
-   响应式
+   平板响应式
    ========================= */
 @media (max-width: 992px) {
   .header {
@@ -327,6 +317,9 @@ footer {
   }
 }
 
+/* =========================
+   手机响应式
+   ========================= */
 @media (max-width: 768px) {
   .header {
     padding: 14px 20px;
@@ -353,16 +346,17 @@ footer {
 
   .hero-content {
     max-width: 100%;
+    align-items: center;
   }
 
   .hero-logo {
     height: 70px;
-    margin-left: 0; /* 手机端恢复居中 */
     margin-bottom: 18px;
   }
 
   .hero-content p {
     font-size: 16px;
+    text-align: center;
   }
 
   .category {
