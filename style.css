@@ -33,7 +33,7 @@ a {
 }
 
 /* =========================
-   顶部导航 HEADER（Pachan风格核心）
+   顶部导航 HEADER
    ========================= */
 .header {
   position: fixed; /* 固定在顶部 */
@@ -46,10 +46,7 @@ a {
   justify-content: space-between; /* 左右分布 */
   align-items: center; /* 垂直居中 */
 
-  /* 高级玻璃黑背景（半透明） */
-  background: rgba(0, 0, 0, 0.18);
-
-  /* 毛玻璃模糊效果 */
+  background: rgba(0, 0, 0, 0.18); /* 很轻的半透明黑 */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
@@ -117,27 +114,23 @@ a {
   position: relative; /* 保证在最上层 */
   z-index: 2;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 文字和按钮保持居中 */
 }
 
-/* Logo 动画 */
-.hero-logo.hero-logo {
+/* 只移动 logo */
+.hero-logo {
   height: 90px;
   width: auto;
   display: block;
   margin-bottom: 20px;
-  margin-left: -300px;
+  margin-left: -30px; /* 只让图片左移，文字按钮不动 */
 
   opacity: 0;
   transform: translateY(20px);
   animation: fadeLogo 1s ease forwards;
 }
-
-@media (max-width: 768px) {
-  .hero-logo {
-    margin-left: 0;
-  }
-}
-
 
 @keyframes fadeLogo {
   to {
@@ -154,13 +147,14 @@ a {
   margin-top: 8px;
   margin-bottom: 22px;
   color: rgba(255, 255, 255, 0.95);
+  text-align: center;
 }
 
 /* 如果以后恢复h1可用 */
 .hero-content h1 {
-  font-size: 64px; /* 大标题 */
-  font-weight: 300; /* 细字体（高级感关键） */
-  letter-spacing: 2px; /* 字间距拉开更高级 */
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 2px;
 }
 
 /* 按钮 */
@@ -168,7 +162,7 @@ a {
   margin-top: 10px;
   padding: 12px 25px;
   border: none;
-  background: #111; /* 黑色按钮 */
+  background: #111;
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
@@ -178,7 +172,7 @@ a {
 
 /* 按钮悬停 */
 .hero-content button:hover {
-  transform: scale(1.05); /* 放大一点点 */
+  transform: scale(1.05);
   background: #222;
 }
 
@@ -188,18 +182,17 @@ a {
 .category {
   display: flex;
   justify-content: center;
-  gap: 20px; /* 卡片间距 */
+  gap: 20px;
   padding: 80px;
-  background: #f7f7f7; /* 浅灰背景 */
+  background: #f7f7f7;
   flex-wrap: wrap;
 }
 
-/* 分类卡片 */
 .card {
   width: 180px;
   height: 100px;
   background: #fff;
-  border: 1px solid #eee; /* 细边框更干净 */
+  border: 1px solid #eee;
 
   display: flex;
   justify-content: center;
@@ -208,9 +201,8 @@ a {
   transition: 0.3s;
 }
 
-/* 卡片悬停 */
 .card:hover {
-  transform: translateY(-6px); /* 上浮效果 */
+  transform: translateY(-6px);
 }
 
 /* =========================
@@ -228,27 +220,23 @@ a {
   letter-spacing: 1px;
 }
 
-/* 产品网格布局 */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-/* 单个产品 */
 .item {
   transition: 0.3s;
   overflow: hidden;
 }
 
-/* 产品图片 */
 .item img {
   width: 100%;
   display: block;
   transition: 0.4s;
 }
 
-/* 图片放大效果 */
 .item:hover img {
   transform: scale(1.08);
 }
@@ -267,13 +255,11 @@ a {
   min-height: 400px;
 }
 
-/* 左侧图片 */
 .about-img {
   flex: 1;
   background: url("images/about.jpg") center/cover no-repeat;
 }
 
-/* 右侧文字 */
 .about-text {
   flex: 1;
   padding: 80px;
@@ -315,7 +301,6 @@ footer {
   transition: all 1s ease;
 }
 
-/* 显示状态 */
 .fade.show {
   opacity: 1;
   transform: translateY(0);
@@ -380,7 +365,8 @@ footer {
 
   .hero-logo {
     height: 70px;
-    margin: 0 auto 18px;
+    margin-left: 0; /* 手机端恢复居中 */
+    margin-bottom: 18px;
   }
 
   .hero-content p {
