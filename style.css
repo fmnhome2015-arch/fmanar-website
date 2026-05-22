@@ -11,22 +11,34 @@
 body {
   background: #fff; /* 页面背景白色 */
   color: #111; /* 默认字体颜色深灰黑 */
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* =========================
-   顶部导航 HEADER（Pachan风格核心）
-   ========================= */
-/* =========================
    LOGO 图片
-========================= */
+   ========================= */
 .logo img {
   height: 40px;   /* logo高度 */
   width: auto;    /* 自动保持比例 */
   display: block;
 }
+
+/* =========================
+   顶部导航 HEADER（Pachan风格核心）
+   ========================= */
 .header {
   position: fixed; /* 固定在顶部 */
   top: 0;
+  left: 0;
   width: 100%; /* 占满全屏宽度 */
   padding: 18px 60px; /* 上下18px，左右60px */
 
@@ -34,11 +46,12 @@ body {
   justify-content: space-between; /* 左右分布 */
   align-items: center; /* 垂直居中 */
 
-  /* ⭐ 高级玻璃黑背景（半透明） */
-  background: rgba(0, 0, 0, 0.25);
+  /* 高级玻璃黑背景（半透明） */
+  background: rgba(0, 0, 0, 0.18);
 
-  /* ⭐ 毛玻璃模糊效果 */
+  /* 毛玻璃模糊效果 */
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   z-index: 1000; /* 保证在最上层 */
   transition: 0.3s; /* 动画过渡 */
@@ -46,14 +59,13 @@ body {
 
 /* 滚动后的导航状态 */
 .header.scrolled {
-  background: rgba(0, 0, 0, 0.45); /* 更深一点的黑 */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 阴影增强层级 */
+  background: rgba(0, 0, 0, 0.32); /* 更深一点的黑 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); /* 阴影增强层级 */
 }
 
 /* 导航文字样式 */
 .header nav a {
   margin: 0 15px; /* 每个菜单间距 */
-  text-decoration: none; /* 去掉下划线 */
   color: #fff; /* 白色字体 */
   font-size: 14px; /* 字体大小 */
   letter-spacing: 1px; /* 字间距（更高级） */
@@ -89,6 +101,25 @@ body {
   object-fit: cover; /* 视频铺满不变形 */
   z-index: 0; /* 最底层 */
 }
+
+/* 很淡很淡的遮罩 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* hero文字层 */
+.hero-content {
+  position: relative; /* 保证在最上层 */
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* Logo 动画 */
 .hero-logo {
   height: 90px;
   width: auto;
@@ -106,20 +137,18 @@ body {
     transform: translateY(0);
   }
 }
-/* ⭐ 遮罩（无） */
 
-.hero::before {
-  display: none;
-}
-}
-
-/* hero文字层 */
-.hero-content {
-  position: relative; /* 保证在最上层 */
-  z-index: 2;
+/* 副标题 */
+.hero-content p {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* 主标题 */
+/* 如果以后恢复h1可用 */
 .hero-content h1 {
   font-size: 64px; /* 大标题 */
   font-weight: 300; /* 细字体（高级感关键） */
@@ -128,18 +157,21 @@ body {
 
 /* 按钮 */
 .hero-content button {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 12px 25px;
   border: none;
   background: #111; /* 黑色按钮 */
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 /* 按钮悬停 */
 .hero-content button:hover {
   transform: scale(1.05); /* 放大一点点 */
+  background: #222;
 }
 
 /* =========================
@@ -151,6 +183,7 @@ body {
   gap: 20px; /* 卡片间距 */
   padding: 80px;
   background: #f7f7f7; /* 浅灰背景 */
+  flex-wrap: wrap;
 }
 
 /* 分类卡片 */
@@ -180,6 +213,13 @@ body {
   text-align: center;
 }
 
+.products h2 {
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
 /* 产品网格布局 */
 .grid {
   display: grid;
@@ -190,11 +230,13 @@ body {
 /* 单个产品 */
 .item {
   transition: 0.3s;
+  overflow: hidden;
 }
 
 /* 产品图片 */
 .item img {
   width: 100%;
+  display: block;
   transition: 0.4s;
 }
 
@@ -203,24 +245,45 @@ body {
   transform: scale(1.08);
 }
 
+.item p {
+  margin-top: 14px;
+  font-size: 15px;
+  color: #222;
+}
+
 /* =========================
    关于 ABOUT
    ========================= */
 .about {
   display: flex;
-  height: 400px;
+  min-height: 400px;
 }
 
 /* 左侧图片 */
 .about-img {
   flex: 1;
-  background: url("images/about.jpg") center/cover;
+  background: url("images/about.jpg") center/cover no-repeat;
 }
 
 /* 右侧文字 */
 .about-text {
   flex: 1;
   padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text h2 {
+  font-size: 34px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: #555;
+  max-width: 520px;
 }
 
 /* =========================
@@ -231,6 +294,8 @@ footer {
   color: white;
   text-align: center;
   padding: 30px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 /* =========================
@@ -246,4 +311,87 @@ footer {
 .fade.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* =========================
+   响应式
+   ========================= */
+@media (max-width: 992px) {
+  .header {
+    padding: 16px 30px;
+  }
+
+  .hero {
+    padding-left: 40px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about-img {
+    min-height: 320px;
+  }
+
+  .about-text {
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header nav a {
+    margin: 6px 10px;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-logo {
+    height: 70px;
+    margin: 0 auto 18px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .category {
+    padding: 50px 20px;
+  }
+
+  .products {
+    padding: 50px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    padding: 40px 20px;
+  }
 }
