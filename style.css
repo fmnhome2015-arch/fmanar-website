@@ -352,16 +352,23 @@ footer {
    ========================= */
 @media (max-width: 992px) {
   .header {
-    padding: 18px 30px;
+    padding: 16px 30px;
   }
 
-  .category {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 60px 30px;
+  .hero {
+    padding-left: 40px;
   }
 
   .products {
-    padding: 60px 30px;
+    padding: 90px 40px 60px;
+  }
+
+  .products-intro h2 {
+    font-size: 26px;
+  }
+
+  .products-copy p {
+    font-size: 18px;
   }
 
   .grid {
@@ -369,7 +376,7 @@ footer {
   }
 
   .about {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .about-img {
@@ -377,49 +384,91 @@ footer {
   }
 
   .about-text {
-    padding: 40px 30px;
+    padding: 50px 30px;
   }
 }
 
 @media (max-width: 768px) {
   .header {
+    padding: 14px 20px;
     flex-direction: column;
-    gap: 12px;
-    padding: 15px 20px;
+    gap: 10px;
   }
 
   .header nav {
-    gap: 18px;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
+  .header nav a {
+    margin: 6px 10px;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    align-items: center;
+  }
+
   .hero-logo {
-    width: 220px;
+    height: 70px;
+    margin-bottom: 18px;
   }
 
   .hero-content p {
-    font-size: 18px;
+    font-size: 16px;
+    text-align: center;
   }
 
   .category {
-    grid-template-columns: 1fr;
     padding: 50px 20px;
   }
 
   .products {
-    padding: 50px 20px;
+    padding: 70px 20px 50px;
+  }
+
+  .products-intro {
+    margin-bottom: 45px;
+  }
+
+  .products-intro h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .products-tabs {
+    gap: 14px 20px;
+    margin-bottom: 24px;
+  }
+
+  .products-tabs a {
+    font-size: 14px;
+  }
+
+  .products-copy p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .products-link {
+    font-size: 14px;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .products h2 {
-    font-size: 28px;
-  }
-
-  .item img {
-    height: 260px;
+  .about-text {
+    padding: 40px 20px;
   }
 }
+
