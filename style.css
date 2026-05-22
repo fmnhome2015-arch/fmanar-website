@@ -16,6 +16,14 @@ body {
 /* =========================
    顶部导航 HEADER（Pachan风格核心）
    ========================= */
+/* =========================
+   LOGO 图片
+========================= */
+.logo img {
+  height: 40px;   /* logo高度 */
+  width: auto;    /* 自动保持比例 */
+  display: block;
+}
 .header {
   position: fixed; /* 固定在顶部 */
   top: 0;
