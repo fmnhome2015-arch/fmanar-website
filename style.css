@@ -165,45 +165,134 @@ img {
 /* =========================
    产品展示 PRODUCTS
    ========================= */
+/* =========================
+   产品区域 PRODUCTS
+   Visionnaire Featured interiors 风格改造版
+   ========================= */
 .products {
-  padding: 80px 60px;
+  padding: 110px 80px 80px;
   background: #fff;
 }
 
-.products h2 {
-  text-align: center;
-  font-size: 34px;
-  margin-bottom: 50px;
-  color: #222;
+/* 上方介绍区 */
+.products-intro {
+  margin-bottom: 70px;
 }
 
+/* 小标题风格 */
+.products-intro h2 {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  color: #111;
+  margin-bottom: 34px;
+  text-align: left;
+}
+
+/* 横向分类 */
+.products-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 34px;
+  margin-bottom: 34px;
+}
+
+.products-tabs a {
+  position: relative;
+  color: #111;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.products-tabs a:hover {
+  opacity: 0.55;
+}
+
+/* 可选：给第一个分类一个下划线强调 */
+.products-tabs a:first-child::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background: #111;
+}
+
+/* 描述文案 */
+.products-copy {
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+
+.products-copy p {
+  font-size: 20px;
+  line-height: 1.7;
+  font-weight: 300;
+  color: #222;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+/* 文字链接按钮 */
+.products-link {
+  display: inline-block;
+  color: #111;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.products-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #111;
+}
+
+.products-link:hover {
+  opacity: 0.6;
+}
+
+/* 下方产品网格 */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 26px;
 }
 
 .item {
-  background: #fff;
-  border-radius: 8px;
+  transition: 0.3s;
   overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.item:hover {
-  transform: translateY(-5px);
 }
 
 .item img {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.item:hover img {
+  transform: scale(1.05);
 }
 
 .item p {
-  text-align: center;
-  padding: 16px 10px;
-  font-size: 17px;
+  margin-top: 16px;
+  font-size: 15px;
+  color: #222;
+  text-align: left;
+  font-weight: 300;
+  letter-spacing: 0.3px;
 }
 
 /* =========================
