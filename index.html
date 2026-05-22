@@ -14,13 +14,10 @@
        顶部导航 HEADER
        ========================= -->
   <header class="header" id="header">
-
-    <!-- 网站LOGO -->
     <div class="logo">
       <img src="images/logo.png" alt="Fmanar Logo">
     </div>
 
-    <!-- 导航菜单 -->
     <nav>
       <a href="#">Home</a>
       <a href="#">Sofa</a>
@@ -28,27 +25,22 @@
       <a href="#">Dining</a>
       <a href="#">About</a>
     </nav>
-
   </header>
 
   <!-- =========================
        首屏 HERO（视频背景）
        ========================= -->
   <section class="hero">
-
-    <!-- 背景视频 -->
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="videos/hero.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-    <!-- 首屏文字内容 -->
     <div class="hero-content fade">
       <img src="images/fmanarhome.png" class="hero-logo" alt="Fmanar Logo">
       <p>Design for Better Living</p>
       <button>Explore Collection</button>
     </div>
-
   </section>
 
   <!-- =========================
@@ -62,67 +54,70 @@
   </section>
 
   <!-- =========================
-       产品展示 PRODUCTS
+       产品展示 PRODUCTS 轮播版
        ========================= -->
- <section class="products">
+  <section class="products fade">
+    <div class="products-head">
+      <h2>Featured Products</h2>
 
-  <!-- Visionnaire风格标题区 -->
-  <div class="products-intro fade">
-    <h2>Featured Products</h2>
-
-    <div class="products-tabs">
-      <a href="#">Living Room</a>
-      <a href="#">Dining Room</a>
-      <a href="#">Bedroom</a>
-      <a href="#">Office</a>
-      <a href="#">Storage</a>
-      <a href="#">Outdoor</a>
+      <div class="products-arrows">
+        <button class="arrow-btn products-prev" aria-label="Previous">
+          &#8249;
+        </button>
+        <button class="arrow-btn products-next" aria-label="Next">
+          &#8250;
+        </button>
+      </div>
     </div>
 
-    <div class="products-copy">
-      <p>
-        We shape your idea of home with timeless furniture,
-        refined materials and a contemporary sense of living.
-      </p>
+    <div class="products-slider">
+      <div class="products-track">
+
+        <a href="#" class="showcase-item">
+          <div class="showcase-image">
+            <img src="images/1.jpg" alt="Living Room Collection">
+          </div>
+          <p>Living room</p>
+        </a>
+
+        <a href="#" class="showcase-item">
+          <div class="showcase-image">
+            <img src="images/2.jpg" alt="Dining Room Collection">
+          </div>
+          <p>Dining room</p>
+        </a>
+
+        <a href="#" class="showcase-item">
+          <div class="showcase-image">
+            <img src="images/3.jpg" alt="Bedroom Collection">
+          </div>
+          <p>Bedroom</p>
+        </a>
+
+        <a href="#" class="showcase-item">
+          <div class="showcase-image">
+            <img src="images/4.jpg" alt="Study Room Collection">
+          </div>
+          <p>Study room</p>
+        </a>
+
+        <a href="#" class="showcase-item">
+          <div class="showcase-image">
+            <img src="images/5.jpg" alt="Cabinet Collection">
+          </div>
+          <p>Cabinet</p>
+        </a>
+
+      </div>
     </div>
-
-    <a href="#" class="products-link">Discover our collections</a>
-  </div>
-
-  <!-- 下方产品图保留 -->
-  <div class="grid">
-    <div class="item fade">
-      <img src="images/1.jpg" alt="Modern Sofa">
-      <p>Modern Sofa</p>
-    </div>
-
-    <div class="item fade">
-      <img src="images/2.jpg" alt="Luxury Sofa">
-      <p>Luxury Sofa</p>
-    </div>
-
-    <div class="item fade">
-      <img src="images/3.jpg" alt="Minimal Bed">
-      <p>Minimal Bed</p>
-    </div>
-
-    <div class="item fade">
-      <img src="images/4.jpg" alt="Dining Set">
-      <p>Dining Set</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- =========================
        关于我们 ABOUT
        ========================= -->
   <section class="about fade">
-
-    <!-- 左侧图片 -->
     <div class="about-img"></div>
 
-    <!-- 右侧文字 -->
     <div class="about-text">
       <h2>About Fmanar</h2>
       <p>
@@ -130,7 +125,6 @@
         elegant and comfortable living space design.
       </p>
     </div>
-
   </section>
 
   <!-- =========================
@@ -140,8 +134,7 @@
     © 2026 Fmanar Furniture
   </footer>
 
-  <!-- 引入JS脚本 -->
   <script src="script.js"></script>
-
 </body>
+
 </html>
