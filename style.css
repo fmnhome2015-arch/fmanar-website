@@ -84,8 +84,14 @@ img {
 
 /* 去掉视频遮罩 */
 .hero::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  pointer-events: none;
 }
+
 
 /* 首屏内容 */
 .hero-content {
