@@ -106,20 +106,11 @@ body {
     transform: translateY(0);
   }
 }
-/* ⭐ 渐变遮罩（提升高级感，比纯黑更自然） */
+/* ⭐ 遮罩（无） */
+
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* 等同 top/right/bottom/left = 0 */
-
-  /* 从上到下渐变压暗 */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.4),
-    rgba(0,0,0,0.8)
-  );
-
-  z-index: 1; /* 在视频上面 */
+  display: none;
+}
 }
 
 /* hero文字层 */
