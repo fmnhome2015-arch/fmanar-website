@@ -111,35 +111,26 @@ a {
 
 /* hero文字层 */
 .hero-content {
-  position: relative; /* 保证在最上层 */
+  position: relative;
   z-index: 2;
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 文字和按钮保持居中 */
+  align-items: flex-start; /* 全部左对齐 */
 }
 
-/* 只移动 logo */
 .hero-logo {
   height: 90px;
   width: auto;
   display: block;
   margin-bottom: 20px;
-  margin-left: 10px; /* 只让图片左移，文字按钮不动 */
+  margin-left: 0; /* 不再单独偏移 */
 
   opacity: 0;
   transform: translateY(20px);
   animation: fadeLogo 1s ease forwards;
 }
 
-@keyframes fadeLogo {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 副标题 */
 .hero-content p {
   font-size: 20px;
   font-weight: 300;
@@ -147,8 +138,9 @@ a {
   margin-top: 8px;
   margin-bottom: 22px;
   color: rgba(255, 255, 255, 0.95);
-  text-align: center;
+  text-align: left; /* 文字左对齐 */
 }
+
 
 /* 如果以后恢复h1可用 */
 .hero-content h1 {
