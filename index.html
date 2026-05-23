@@ -5,136 +5,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fmanar Furniture</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- =========================
-       顶部导航 HEADER
-       ========================= -->
+       HEADER
+  ========================= -->
   <header class="header" id="header">
+
     <div class="logo">
       <img src="images/logo.png" alt="Fmanar Logo">
     </div>
 
-    <nav>
+    <nav class="nav">
       <a href="#">Home</a>
       <a href="#">Sofa</a>
       <a href="#">Bedroom</a>
       <a href="#">Dining</a>
       <a href="#">About</a>
     </nav>
+
   </header>
 
   <!-- =========================
-       首屏 HERO（视频背景）
-       ========================= -->
+       HERO VIDEO
+  ========================= -->
   <section class="hero">
+
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="videos/hero.mp4" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
 
     <div class="hero-content fade">
-      <img src="images/fmanarhome.png" class="hero-logo" alt="Fmanar Logo">
+      <img src="images/fmanarhome.png"
+           alt="Fmanar"
+           class="hero-logo">
+
       <p>Design for Better Living</p>
+
       <button>Explore Collection</button>
     </div>
+
   </section>
 
   <!-- =========================
-       分类区域 CATEGORY
-       ========================= -->
+       CATEGORY
+  ========================= -->
   <section class="category fade">
+
     <div class="card">Sofa</div>
     <div class="card">Bedroom</div>
     <div class="card">Dining</div>
     <div class="card">Storage</div>
+
   </section>
 
   <!-- =========================
-       产品展示 PRODUCTS 轮播版
-       ========================= -->
+       PRODUCTS
+  ========================= -->
   <section class="products fade">
+
     <div class="products-head">
+
       <h2>Featured Products</h2>
 
       <div class="products-arrows">
-        <button class="arrow-btn products-prev" aria-label="Previous">
-          &#8249;
-        </button>
-        <button class="arrow-btn products-next" aria-label="Next">
-          &#8250;
-        </button>
+        <button class="arrow-btn products-prev">&#8249;</button>
+        <button class="arrow-btn products-next">&#8250;</button>
       </div>
+
     </div>
 
     <div class="products-slider">
+
       <div class="products-track">
 
         <a href="#" class="showcase-item">
           <div class="showcase-image">
-            <img src="images/1.jpg" alt="Living Room Collection">
+            <img src="images/1.jpg">
           </div>
-          <p>Living room</p>
+          <p>Living Room</p>
         </a>
 
         <a href="#" class="showcase-item">
           <div class="showcase-image">
-            <img src="images/2.jpg" alt="Dining Room Collection">
+            <img src="images/2.jpg">
           </div>
-          <p>Dining room</p>
+          <p>Dining Room</p>
         </a>
 
         <a href="#" class="showcase-item">
           <div class="showcase-image">
-            <img src="images/3.jpg" alt="Bedroom Collection">
+            <img src="images/3.jpg">
           </div>
           <p>Bedroom</p>
         </a>
 
         <a href="#" class="showcase-item">
           <div class="showcase-image">
-            <img src="images/4.jpg" alt="Study Room Collection">
+            <img src="images/4.jpg">
           </div>
-          <p>Study room</p>
+          <p>Study Room</p>
         </a>
 
         <a href="#" class="showcase-item">
           <div class="showcase-image">
-            <img src="images/5.jpg" alt="Cabinet Collection">
+            <img src="images/5.jpg">
           </div>
           <p>Cabinet</p>
         </a>
 
       </div>
+
     </div>
+
   </section>
 
   <!-- =========================
-       关于我们 ABOUT
-       ========================= -->
+       ABOUT
+  ========================= -->
   <section class="about fade">
+
     <div class="about-img"></div>
 
     <div class="about-text">
+
       <h2>About Fmanar</h2>
+
       <p>
-        Fmanar is a modern furniture brand focused on minimal,
-        elegant and comfortable living space design.
+        Fmanar is a modern furniture brand focused on
+        elegant, minimal and comfortable living spaces.
       </p>
+
     </div>
+
   </section>
 
   <!-- =========================
-       页脚 FOOTER
-       ========================= -->
+       FOOTER
+  ========================= -->
   <footer>
     © 2026 Fmanar Furniture
   </footer>
 
   <script src="script.js"></script>
-</body>
 
+</body>
 </html>
