@@ -65,7 +65,7 @@ button{
   background:transparent;
 }
 
-/* 滚动后导航变深 */
+/* 滚动后 */
 
 .header.scrolled{
   background:rgba(0,0,0,.45);
@@ -98,14 +98,13 @@ button{
   color:#fff;
 
   font-size:13px;
-  font-weight:400;
 
   letter-spacing:2px;
 
   transition:.3s;
 }
 
-/* 下划线动画 */
+/* hover line */
 
 .nav a::after{
   content:"";
@@ -144,14 +143,15 @@ button{
   overflow:hidden;
 
   display:flex;
+  justify-content:center;
   align-items:center;
 
-  padding-left:90px;
+  text-align:center;
 
   isolation:isolate;
 }
 
-/* 视频层 */
+/* VIDEO */
 
 .hero-video{
   position:absolute;
@@ -167,7 +167,7 @@ button{
   z-index:1;
 }
 
-/* 内容层 */
+/* CONTENT */
 
 .hero-content{
   position:relative;
@@ -176,24 +176,28 @@ button{
 
   color:#fff;
 
-  max-width:650px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 
-/* LOGO */
+/* HERO LOGO */
 
 .hero-logo{
   width:340px;
 
-  margin-bottom:26px;
+  margin-bottom:24px;
 
   opacity:0;
 
   transform:translateY(30px);
 
-  animation:fadeUp 1.2s ease forwards;
+  animation:
+  fadeUp 1.2s ease forwards;
 }
 
-/* 副标题 */
+/* TEXT */
 
 .hero-content p{
   font-size:20px;
@@ -204,7 +208,7 @@ button{
 
   margin-bottom:34px;
 
-  color:rgba(255,255,255,.95);
+  color:#fff;
 
   opacity:0;
 
@@ -305,7 +309,7 @@ button{
   padding:90px 40px;
 }
 
-/* 顶部 */
+/* TOP */
 
 .products-head{
   max-width:1400px;
@@ -327,7 +331,7 @@ button{
   color:#444;
 }
 
-/* 箭头 */
+/* ARROWS */
 
 .products-arrows{
   display:flex;
@@ -361,7 +365,7 @@ button{
   border-color:#111;
 }
 
-/* 轮播容器 */
+/* SLIDER */
 
 .products-slider{
   max-width:1400px;
@@ -419,7 +423,7 @@ button{
   transform:scale(1.06);
 }
 
-/* 标题 */
+/* text */
 
 .showcase-item p{
   margin-top:14px;
@@ -445,7 +449,7 @@ button{
   min-height:560px;
 }
 
-/* 图片 */
+/* IMAGE */
 
 .about-img{
   flex:1;
@@ -455,7 +459,7 @@ button{
   center/cover no-repeat;
 }
 
-/* 文字 */
+/* TEXT */
 
 .about-text{
   flex:1;
@@ -504,7 +508,7 @@ footer{
 }
 
 /* ========================================
-   SCROLL FADE ANIMATION
+   SCROLL ANIMATION
 ======================================== */
 
 .fade{
@@ -544,10 +548,6 @@ footer{
 
   .header{
     padding:18px 30px;
-  }
-
-  .hero{
-    padding-left:40px;
   }
 
   .hero-logo{
@@ -616,18 +616,7 @@ footer{
   /* HERO */
 
   .hero{
-    justify-content:center;
-
-    text-align:center;
-
-    padding:
-    0 20px;
-  }
-
-  .hero-content{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    padding:0 20px;
   }
 
   .hero-logo{
