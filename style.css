@@ -1,471 +1,428 @@
 /* =========================
-   全局基础样式
-   ========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  background: #fff;
-  color: #111;
-  line-height: 1.6;
+body{
+  font-family:Helvetica, Arial, sans-serif;
+  background:#fff;
+  color:#111;
+  overflow-x:hidden;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+img{
+  width:100%;
+  display:block;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* =========================
-   LOGO 图片
-   ========================= */
-.logo img {
-  height: 40px;
-  width: auto;
-  display: block;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 /* =========================
-   顶部导航 HEADER
-   ========================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 18px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 1000;
-  transition: 0.3s;
+   HEADER
+========================= */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:22px 60px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  z-index:1000;
+
+  transition:.4s;
+
+  background:transparent;
 }
 
-.header.scrolled {
-  background: rgba(0, 0, 0, 0.32);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+.header.scrolled{
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(12px);
 }
 
-.header nav a {
-  margin: 0 15px;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s;
+.logo img{
+  height:42px;
+  width:auto;
 }
 
-.header nav a:hover {
-  opacity: 0.6;
+.nav{
+  display:flex;
+  gap:35px;
 }
 
-/* =========================
-   首屏 HERO（视频区域）
-   ========================= */
-.hero {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding-left: 80px;
-  color: #fff;
+.nav a{
+  color:#fff;
+  font-size:13px;
+  letter-spacing:2px;
+  position:relative;
 }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:1px;
+  background:#fff;
+  transition:.4s;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.12);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero-logo {
-  height: 90px;
-  width: auto;
-  display: block;
-  margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeLogo 1s ease forwards;
-}
-
-@keyframes fadeLogo {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-content p {
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  margin-top: 8px;
-  margin-bottom: 22px;
-  color: rgba(255, 255, 255, 0.95);
-  text-align: left;
-}
-
-.hero-content button {
-  margin-top: 10px;
-  padding: 12px 25px;
-  border: none;
-  background: #111;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.hero-content button:hover {
-  transform: scale(1.05);
-  background: #222;
+.nav a:hover::after{
+  width:100%;
 }
 
 /* =========================
-   分类区域 CATEGORY
-   ========================= */
-.category {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 80px;
-  background: #f7f7f7;
-  flex-wrap: wrap;
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+
+  padding-left:90px;
 }
 
-.card {
-  width: 180px;
-  height: 100px;
-  background: #fff;
-  border: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
+.hero-video{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+/* 删除暗层 */
+.hero::before{
+  display:none;
 }
 
-/* =========================
-   产品区域 PRODUCTS 轮播版
-   ========================= */
-.products {
-  background: #f7f6f3;
-  padding: 70px 24px 80px;
+.hero-content{
+  position:relative;
+  z-index:2;
+  color:#fff;
 }
 
-.products-head {
-  max-width: 1400px;
-  margin: 0 auto 26px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.hero-logo{
+  width:340px;
+  margin-bottom:25px;
+
+  opacity:0;
+  transform:translateY(30px);
+
+  animation:fadeUp 1.2s ease forwards;
 }
 
-.products-head h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #5c5c5c;
-  letter-spacing: 0.2px;
+.hero-content p{
+  font-size:20px;
+  letter-spacing:2px;
+  margin-bottom:30px;
+
+  opacity:.95;
 }
 
-.products-arrows {
-  display: flex;
-  gap: 10px;
+.hero-content button{
+  padding:14px 32px;
+  border:none;
+  background:#111;
+  color:#fff;
+
+  cursor:pointer;
+
+  transition:.4s;
+
+  letter-spacing:1px;
 }
 
-.arrow-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid #d4d4d4;
-  background: #fff;
-  color: #8a8a8a;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.arrow-btn:hover {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
-
-.products-slider {
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.products-track {
-  display: flex;
-  gap: 6px;
-  transition: transform 0.6s ease;
-  will-change: transform;
-}
-
-.showcase-item {
-  flex: 0 0 calc((100% - 12px) / 3);
-  min-width: calc((100% - 12px) / 3);
-  display: block;
-}
-
-.showcase-image {
-  position: relative;
-  overflow: hidden;
-  background: #ddd;
-  aspect-ratio: 0.72 / 1;
-}
-
-.showcase-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.showcase-item:hover .showcase-image img {
-  transform: scale(1.04);
-}
-
-.showcase-item p {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #6b6b6b;
-  font-weight: 500;
-  padding-left: 2px;
+.hero-content button:hover{
+  transform:translateY(-3px);
+  background:#222;
 }
 
 /* =========================
-   关于 ABOUT
-   ========================= */
-.about {
-  display: flex;
-  min-height: 400px;
+   CATEGORY
+========================= */
+
+.category{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+
+  padding:90px 50px;
+  background:#f7f7f7;
+
+  flex-wrap:wrap;
 }
 
-.about-img {
-  flex: 1;
-  background: url("images/about.jpg") center/cover no-repeat;
+.card{
+  width:220px;
+  height:120px;
+
+  background:#fff;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  transition:.4s;
+
+  font-size:18px;
+
+  border:1px solid #eee;
 }
 
-.about-text {
-  flex: 1;
-  padding: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.about-text h2 {
-  font-size: 34px;
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.about-text p {
-  font-size: 16px;
-  color: #555;
-  max-width: 520px;
-}
-
-/* =========================
-   页脚 FOOTER
-   ========================= */
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 30px;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
 /* =========================
-   动画效果（滚动出现）
-   ========================= */
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
+   PRODUCTS
+========================= */
+
+.products{
+  padding:80px 40px;
+  background:#f7f6f3;
 }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+.products-head{
+  max-width:1400px;
+  margin:auto;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:30px;
+}
+
+.products-head h2{
+  font-size:24px;
+  font-weight:500;
+}
+
+.products-arrows{
+  display:flex;
+  gap:10px;
+}
+
+.arrow-btn{
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+  border:1px solid #ddd;
+
+  background:#fff;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.arrow-btn:hover{
+  background:#111;
+  color:#fff;
+}
+
+.products-slider{
+  overflow:hidden;
+  max-width:1400px;
+  margin:auto;
+}
+
+.products-track{
+  display:flex;
+  gap:8px;
+
+  transition:transform .6s ease;
+}
+
+.showcase-item{
+  min-width:calc((100% - 16px) / 3);
+}
+
+.showcase-image{
+  overflow:hidden;
+  aspect-ratio:0.72/1;
+}
+
+.showcase-image img{
+  height:100%;
+  object-fit:cover;
+
+  transition:1.2s;
+}
+
+.showcase-item:hover img{
+  transform:scale(1.06);
+}
+
+.showcase-item p{
+  margin-top:14px;
+  color:#666;
 }
 
 /* =========================
-   平板响应式
-   ========================= */
-@media (max-width: 992px) {
-  .header {
-    padding: 16px 30px;
-  }
+   ABOUT
+========================= */
 
-  .hero {
-    padding-left: 40px;
-  }
+.about{
+  display:flex;
+  min-height:550px;
+}
 
-  .products {
-    padding: 60px 20px 70px;
-  }
+.about-img{
+  flex:1;
+  background:url(images/about.jpg) center/cover;
+}
 
-  .products-head {
-    margin-bottom: 22px;
-  }
+.about-text{
+  flex:1;
 
-  .showcase-item {
-    flex: 0 0 calc((100% - 10px) / 2);
-    min-width: calc((100% - 10px) / 2);
-  }
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 
-  .products-track {
-    gap: 10px;
-  }
+  padding:90px;
+}
 
-  .showcase-image {
-    aspect-ratio: 1.05 / 1;
-  }
+.about-text h2{
+  font-size:42px;
+  font-weight:300;
+  margin-bottom:25px;
+}
 
-  .about {
-    flex-direction: column;
-  }
-
-  .about-img {
-    min-height: 320px;
-  }
-
-  .about-text {
-    padding: 50px 30px;
-  }
+.about-text p{
+  color:#666;
+  max-width:500px;
+  line-height:1.8;
 }
 
 /* =========================
-   手机响应式
-   ========================= */
-@media (max-width: 768px) {
-  .header {
-    padding: 14px 20px;
-    flex-direction: column;
-    gap: 10px;
+   FOOTER
+========================= */
+
+footer{
+  background:#111;
+  color:#fff;
+
+  text-align:center;
+
+  padding:35px;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeUp{
+
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 
-  .header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+  .hero{
+    padding-left:40px;
   }
 
-  .header nav a {
-    margin: 6px 10px;
+  .showcase-item{
+    min-width:calc((100% - 10px)/2);
   }
 
-  .hero {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: center;
-    text-align: center;
+  .products-track{
+    gap:10px;
   }
 
-  .hero-content {
-    max-width: 100%;
-    align-items: center;
+  .about{
+    flex-direction:column;
   }
 
-  .hero-logo {
-    height: 70px;
-    margin-bottom: 18px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .header{
+    padding:18px 20px;
+    flex-direction:column;
+    gap:12px;
   }
 
-  .hero-content p {
-    font-size: 16px;
-    text-align: center;
+  .nav{
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
-  .category {
-    padding: 50px 20px;
+  .hero{
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
   }
 
-  .products {
-    padding: 50px 16px 60px;
+  .hero-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
 
-  .products-head {
-    margin-bottom: 18px;
-    align-items: center;
+  .hero-logo{
+    width:240px;
   }
 
-  .products-head h2 {
-    font-size: 18px;
+  .hero-content p{
+    font-size:16px;
   }
 
-  .products-arrows {
-    gap: 8px;
+  .showcase-item{
+    min-width:100%;
   }
 
-  .arrow-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+  .products-track{
+    gap:12px;
   }
 
-  .products-track {
-    gap: 12px;
+  .about-text{
+    padding:50px 25px;
   }
 
-  .showcase-item {
-    flex: 0 0 100%;
-    min-width: 100%;
-  }
-
-  .showcase-image {
-    aspect-ratio: 0.95 / 1;
-  }
-
-  .showcase-item p {
-    margin-top: 10px;
-    font-size: 13px;
-  }
-
-  .about-text {
-    padding: 40px 20px;
-  }
 }
